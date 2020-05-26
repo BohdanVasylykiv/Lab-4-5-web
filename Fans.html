@@ -1,0 +1,159 @@
+<!DOCTYPE>
+<html manifest="manifest">
+<html lang="en">
+<head>
+	<title>Chicago Bulls</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="bootstrap-theme.min.css">
+  <script src="function.js"></script>
+  	
+
+</head>
+
+<body>
+
+<header>
+	<nav class="navbar navbar-default navbar-fixed-top navbar-dark bg-dark" role="navigation">
+    <div class="container">
+      
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="mynavbar">
+        
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <p  class="navbar-brand">Chicago Bulls</p>
+      </div>
+
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="nav navbar-nav">
+          <li> <a href="index.html"><img src="Home.png" width="22px"> Main</a> </li>
+          <li> <a href="Matches.html">Matches</a> 
+            <ul class="nav navbar-nav">
+              <li><a href="Matches.html">Calendar of matches</a></li>
+              <li><a href="#">Next game</a></li>
+              <li><a href="#">Raitings</a></li>
+            </ul> 
+          </li>
+          <li> <a href="News.html">News</a> </li>
+          <li> <a href="Fans.html">Fans</a> </li>
+          <li> <a href="Contacts.html">Contacts</a> </li>
+          <li> <a href="Admin.html">Admin</a> </li>
+        </ul>
+        
+        <img style="float: right;" src="logo.png" alt="logo" width="110px">
+      
+      </div>
+
+    </div>
+    
+    
+  </nav>
+
+</header>
+
+<main class="container">
+	
+	<h1 class="text-center">Звернення фанів</h1>
+
+	
+
+<div class="row">
+	
+	<div class="col-md-12">
+ 	    <div id="comment-field"></div>
+    </div>
+
+	<div class="col-md-9">
+		<label for="comment-body">Comment:</label>
+		<textarea type="name" class="form-control" id="comment-body" rows="6" placeholder="Your comment"></textarea>	
+	</div>
+
+	
+  <div class="col-md-3">
+		<button type="submit" id="comment-add" class="btn btn-info pull-left">Опублікувати</button>
+	</div>
+
+</div>
+</main>
+<br><br><br>
+<footer style="margin-top: 320" class="container footer">
+    
+	<div class="row">
+		<div class="img-wrap">
+			<img src="footer.jpg" class="img-responsive" width="100%">
+		</div>
+	</div>
+
+</footer>
+
+
+<script src="jquery-3.3.1.min.js"></script>
+<script src="bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    
+let comments = [];
+loadComments();
+
+document.getElementById('comment-add').onclick = function(){
+  
+   
+    let commentBody = document.getElementById('comment-body');
+
+    let comment = {
+        
+        body : commentBody.value,
+        time : Math.floor(Date.now() / 1000)
+    }
+  if (commentBody.value =='') { alert("Заповніть поле коментаря");} 
+  else if (commentBody.value == 0 ) { alert("Коментар не може містити пробіли");} else { 
+
+    
+    commentBody.value = '';
+
+    comments.push(comment);
+    saveComments();
+    showComments();
+
+};
+}
+
+
+
+   </script>
+</script>
+</body>
+
+</html>
+<!-- <script type="text/javascript">
+  let comments = [];
+loadComments();
+
+document.getElementById('comment-add').onclick = function(){
+    let commentName = document.getElementById('comment-name');
+    let commentBody = document.getElementById('comment-body');
+
+    let comment = {
+        name : commentName.value,
+        body : commentBody.value,
+        time : Math.floor(Date.now() / 1000)
+    }
+    
+    if (commentName.value =='') { alert("Заповніть поле імені");} 
+    else if (commentName.value == 0 ) { alert("Поле імені не може містити тільки пробіли");}
+    else if (commentBody.value =='') { alert("Заповніть поле коментаря");} 
+    else if (commentBody.value == 0 ) { alert("Коментар не може містити тільки пробіли");} else { 
+
+    commentName.value = '';
+    commentBody.value = '';
+
+    comments.push(comment);
+    saveComments();
+    showComments();
+}
+</script> -->

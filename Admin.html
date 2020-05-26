@@ -1,0 +1,145 @@
+<!DOCTYPE>
+<html manifest="manifest">
+<html lang="en">
+<head>
+	<title>Chicago Bulls</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:700" rel="stylesheet">
+	<script src="function.js"></script>
+	
+</head>
+
+<body>
+
+<header>
+	<nav class="navbar navbar-default navbar-fixed-top navbar-dark bg-dark" role="navigation">
+    <div class="container">
+      
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="mynavbar">
+        
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <p  class="navbar-brand">Chicago Bulls</p>
+      </div>
+
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="nav navbar-nav">
+          <li> <a href="index.html"><img src="Home.png" width="22px"> Main</a> </li>
+          <li> <a href="Matches.html">Matches</a> 
+            <ul class="nav navbar-nav">
+              <li><a href="Matches.html">Calendar of matches</a></li>
+              <li><a href="#">Next game</a></li>
+              <li><a href="#">Raitings</a></li>
+            </ul> 
+          </li>
+          <li> <a href="News.html">News</a> </li>
+          <li> <a href="Fans.html">Fans</a> </li>
+          <li> <a href="Contacts.html">Contacts</a> </li>
+          <li> <a href="Admin.html">Admin</a> </li>
+        </ul>
+        
+        <img style="float: right;" src="logo.png" alt="logo" width="110px">
+      
+      </div>
+
+    </div>
+    
+    
+  </nav>
+
+</header>
+
+<main class="container">
+	
+	<h1 class="text-center">Add news</h1><br><br>
+
+	<div class="row">
+		
+		<div class="col-md-7">
+			<img src="empty_news.jpg" class="img-responsive" alt="image-icon" width="300px">
+		</div>
+		
+		<div class="col-md-5"><br>
+			<button type="button" class="btn btn-info pull-left">Додати фото</button>
+		</div>
+
+	</div>
+
+	<br>
+
+	<div class="row">
+		
+		<div class="col-md-7">
+			<textarea class="form-control" rows="1" placeholder="News title" id="News_title"></textarea>
+			<br>
+			<textarea class="form-control" rows="6" placeholder="News text" id="News_text"></textarea>
+		</div>
+		
+		<div class="col-md-5"><br>
+			<button type="button" class="btn btn-info pull-left" id="News_add">Додати новину</button>
+		</div>
+
+	</div>	
+			
+</main>
+<footer class="container footer">
+    
+	<div class="row">
+		<div class="img-wrap">
+			<img src="footer.jpg" class="img-responsive" width="100%">
+		</div>
+	</div>
+
+</footer>
+
+<div id="news-field" style="display: none;">
+	
+</div>
+
+	<script src="jquery-3.3.1.min.js"></script>
+  	<script src="bootstrap.min.js"></script>
+  	<script>jQuery('ul.nav > li').hover(function() { jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(); }, function() { jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(); })</script>
+
+
+<script type="text/javascript">
+	
+	let newss = [];
+	loadNewss();
+
+	document.getElementById('News_add').onclick = function(){
+    let commentTitle = document.getElementById('News_title');
+    let commentText = document.getElementById('News_text');
+
+    let news = {
+        Title : commentTitle.value,
+        Text : commentText.value,
+        
+    }
+
+	if (commentTitle.value =='') { alert("Заповніть поле заголовку");} 
+	else if (commentTitle.value == 0 ) { alert("Заголовок не може містити пробіли");} 
+	else if (commentText.value =='') { alert("Заповніть поле тексту новин");} 
+	else if (commentText.value == 0 ) { alert("Поле новин не може містити пробіли");} else {
+
+    commentTitle.value = '';
+    commentText.value = '';
+
+    newss.push(news);
+    saveNews();
+   function isOnline() {
+return window.navigator.onLine;
+}
+    alert("Новина успішно додана");
+	};
+}
+	</script>
+  	
+
+</body>
+
+</html>

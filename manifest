@@ -1,0 +1,18 @@
+CACHE MANIFEST
+#v1.61
+
+CACHE:
+index.html
+Fans.html
+error.html
+bootstrap.min.css
+bootstrap.min.js
+jquery-3.3.1.min.js
+
+	NETWORK:
+*
+FALLBACK:
+News.html /error.html
+Matches.html /error.html
+Contacs.html /error.html
+Admin.html /error.html
